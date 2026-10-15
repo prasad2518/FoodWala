@@ -1,0 +1,267 @@
+
+/* ========================================
+   FOODWALA - BASE DESIGN SYSTEM
+   Warm restaurant colors + Neumorphism
+   ======================================== */
+
+/* 1. COLOR VARIABLES */
+:root {
+    --primary: #f45b35;
+    --primary-dark: #dc4525;
+    --primary-light: #ff805e;
+
+    --accent: #ffc857;
+    --accent-light: #fff0c2;
+
+    --background: #f7f1e9;
+    --surface: #f7f1e9;
+    --surface-white: #fffdf9;
+
+    --text-primary: #302f2d;
+    --text-secondary: #77716b;
+    --text-light: #a39b92;
+
+    --border: #e9dfd4;
+    --success: #218653;
+    --error: #c93636;
+
+    /* Soft neumorphic shadows */
+    --shadow-raised:
+        7px 7px 16px #ded7cf,
+        -7px -7px 16px #ffffff;
+
+    --shadow-raised-small:
+        4px 4px 9px #ded7cf,
+        -4px -4px 9px #ffffff;
+
+    --shadow-inset:
+        inset 4px 4px 8px #ded7cf,
+        inset -4px -4px 8px #ffffff;
+
+    --shadow-hover:
+        10px 10px 20px #d9d1c8,
+        -10px -10px 20px #ffffff;
+
+    /* Consistent sizing */
+    --radius-small: 10px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+    --radius-pill: 999px;
+
+    /* Consistent spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+
+    /* Layout */
+    --content-width: 1200px;
+    --page-padding: 6%;
+}
+
+/* 2. RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text-primary);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 3. HEADINGS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+h2 {
+    font-size: clamp(24px, 3vw, 32px);
+}
+
+h3 {
+    font-size: 21px;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+/* 4. LINKS */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* 5. IMAGES */
+img {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 6. ACCESSIBILITY */
+button,
+a,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 3px;
+}
+
+/* 7. COMMON LAYOUT */
+.page-container {
+    width: 88%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.section-spacing {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+}
+
+/* 8. COMMON NEUMORPHIC SURFACES */
+.neo-surface {
+    background: var(--surface);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-raised);
+}
+
+.neo-inset {
+    background: var(--surface);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-inset);
+}
+
+/* 9. SELECTION */
+::selection {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* 10. RESPONSIVE */
+@media (max-width: 768px) {
+    :root {
+        --page-padding: 5%;
+        --space-12: 36px;
+    }
+
+    .page-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --radius-large: 18px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+}
+
+/* 11. REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Basic page styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+.container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    width: 190px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+}
+
+

@@ -1,0 +1,122 @@
+
+/* Restaurant page */
+
+.restaurant-page {
+    padding: 35px 0 55px;
+}
+
+.restaurant-hero {
+    padding: 42px;
+    margin-bottom: 35px;
+    border-radius: 28px;
+    background: linear-gradient(120deg, #fff1df, #ffe1d5);
+    box-shadow: var(--shadow-raised);
+}
+
+.restaurant-hero h1 {
+    max-width: 700px;
+    margin-bottom: 12px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+}
+
+.restaurant-hero h1 span {
+    color: var(--primary);
+}
+
+.restaurant-hero p {
+    max-width: 600px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.restaurant-section {
+    margin-top: 30px;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 26px;
+}
+
+.restaurant-card {
+    overflow: hidden;
+    border-radius: 22px;
+    background: var(--surface-white);
+    box-shadow: var(--shadow-raised);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(70, 48, 30, 0.13);
+}
+
+.restaurant-image {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    background: #f0e6da;
+}
+
+.restaurant-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 205px;
+    background: linear-gradient(135deg, #ffe4c9, #ffd3c4);
+    font-size: 3rem;
+}
+
+.restaurant-card-content {
+    padding: 22px;
+}
+
+.restaurant-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.restaurant-cuisine {
+    margin-bottom: 14px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.restaurant-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+}
+
+.restaurant-address {
+    margin-bottom: 18px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.restaurant-card .btn {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .restaurant-page {
+        padding-top: 20px;
+    }
+
+    .restaurant-hero {
+        padding: 26px 22px;
+        border-radius: 20px;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

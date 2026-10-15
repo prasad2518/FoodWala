@@ -1,0 +1,226 @@
+
+<%
+    String navContextPath = request.getContextPath();
+
+    // Check whether the user is logged in
+    Object loggedInUser = session.getAttribute("loggedInUser");
+    boolean isLoggedIn = loggedInUser != null;
+%>
+
+<header class="navbar">
+
+    <!-- FoodWala Logo: image only, no duplicate text -->
+    <a href="<%= navContextPath %>/restaurants" class="logo">
+        <img
+            src="<%= navContextPath %>/images/foodwala-logo.png"
+            alt="FoodWala"
+        >
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="nav-links">
+
+        <a href="<%= navContextPath %>/restaurants">Home</a>
+
+        <a href="<%= navContextPath %>/restaurants">Restaurants</a>
+
+        <% if (isLoggedIn) { %>
+
+            <!-- Visible only after login -->
+            <a href="<%= navContextPath %>/orders">Orders</a>
+
+            <a href="<%= navContextPath %>/profile.jsp"
+               class="profile-link">
+                <span class="profile-icon">&#128100;</span>
+                <span>Profile</span>
+            </a>
+
+            <a href="<%= navContextPath %>/cart.jsp"
+               class="cart-link">
+                <span class="cart-icon">&#128722;</span>
+                <span>Cart</span>
+            </a>
+
+            <!-- Logout -->
+            <form
+                action="<%= navContextPath %>/logout"
+                method="post"
+                class="logout-form"
+            >
+                <button type="submit" class="logout-btn">
+                    Logout
+                </button>
+            </form>
+
+        <% } else { %>
+
+            <!-- Visible before login -->
+            <a href="<%= navContextPath %>/login.jsp">Login</a>
+
+            <a href="<%= navContextPath %>/register.jsp">Register</a>
+
+        <% } %>
+
+    </nav>
+
+</header>
+
+<style>
+    /* Main navbar */
+    .navbar {
+        width: 100%;
+        min-height: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 12px 5%;
+        background: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    /* FoodWala logo */
+    .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        text-decoration: none;
+    }
+
+    .logo img {
+        width: 150px;
+        height: 65px;
+        object-fit: contain;
+        object-position: left center;
+        display: block;
+    }
+
+    /* Navigation links */
+    .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 28px;
+    }
+
+    .nav-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        text-decoration: none;
+        color: #282c3f;
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+        color: #fc8019;
+    }
+
+    /* Profile icon */
+    .profile-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .profile-icon {
+        font-size: 21px;
+        line-height: 1;
+    }
+
+    /* Cart icon */
+    .cart-link {
+        white-space: nowrap;
+    }
+
+    .cart-icon {
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    /* Logout form */
+    .logout-form {
+        display: inline-flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .logout-btn {
+        border: none;
+        border-radius: 9px;
+        padding: 12px 20px;
+        background: #fff0e5;
+        color: #282c3f;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .logout-btn:hover {
+        background: #fc8019;
+        color: #ffffff;
+    }
+
+    /* Tablet */
+    @media (max-width: 1000px) {
+        .navbar {
+            gap: 20px;
+            padding: 12px 3%;
+        }
+
+        .logo img {
+            width: 125px;
+            height: 58px;
+        }
+
+        .nav-links {
+            gap: 18px;
+        }
+
+        .nav-links a,
+        .logout-btn {
+            font-size: 14px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+        .navbar {
+            position: relative;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 5%;
+        }
+
+        .logo img {
+            width: 120px;
+            height: 55px;
+        }
+
+        .nav-links {
+            width: 100%;
+            justify-content: flex-start;
+            gap: 16px;
+        }
+
+        .nav-links a,
+        .logout-btn {
+            font-size: 14px;
+        }
+
+        .logout-btn {
+            padding: 9px 12px;
+        }
+    }
+</style>

@@ -1,0 +1,21 @@
+
+# Eclipse files
+.metadata/
+.settings/
+.project
+.classpath
+Servers/
+
+# Generated build files
+build/
+bin/
+target/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
